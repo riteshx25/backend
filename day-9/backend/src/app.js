@@ -1,9 +1,9 @@
 const express = require("express");
-
+const cors = require("cors");
 const noteModel = require("./models/notes.model");
 
 const app = express();
-
+app.use(cors());
 app.use(express.json());
 
 // create note
@@ -38,7 +38,7 @@ app.delete("/api/notes/:id", async (req, res) => {
   const id = req.params.id;
   await noteModel.findByIdAndDelete(id);
 
-  res.status(204).json({
+  res.status(200).json({
     message: "Note created successfully",
   });
 });
