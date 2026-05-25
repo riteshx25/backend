@@ -14,7 +14,7 @@ const App = () => {
   ]);
 
   const fetchNotes = async () => {
-    const res = await axios.get("http://localhost:3000/api/notes");
+    const res = await axios.get("https://backend-rs17.onrender.com/api/notes");
     setNotes(res.data.notes);
   };
 
@@ -50,12 +50,12 @@ const App = () => {
     e.preventDefault();
 
     if (editingId) {
-      await axios.patch(`http://localhost:3000/api/notes/${editingId}`, formData);
+      await axios.patch(`https://backend-rs17.onrender.com/api/notes/${editingId}`, formData);
       fetchNotes();
       setEditingId(null);
     } else {
       try {
-        const res = await axios.post("http://localhost:3000/api/notes", formData);
+        const res = await axios.post("https://backend-rs17.onrender.com/api/notes", formData);
         fetchNotes();
         console.log(res);
       } catch (error) {
@@ -71,7 +71,7 @@ const App = () => {
 
   const handleDelete = async (noteId) => {
     try {
-      const res = await axios.delete(`http://localhost:3000/api/notes/${noteId}`);
+      const res = await axios.delete(`https://backend-rs17.onrender.com/api/notes/${noteId}`);
       fetchNotes();
       console.log(res.data.message);
     } catch (error) {
