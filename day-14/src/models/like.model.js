@@ -1,0 +1,25 @@
+const mongoose = require('mongoose');
+const { post } = require('../routes/user.route');
+
+const likeSchema = new mongoose.Schema(
+  {
+    post: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'post',
+      required: [true, 'post id is required for creating a like'],
+    },
+
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'user',
+      required: [true, 'user id is required for creating a like'],
+    },
+  },
+  { timestamps: true }
+);
+
+likeSchema.index({ post: 1, user: 1 }, { unique: true });
+
+const likeModel = mongoose.model('like', likeSchema);
+
+module.exports = likeModel;

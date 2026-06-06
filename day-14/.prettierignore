@@ -1,0 +1,40 @@
+# Dependencies
+node_modules
+
+# Environment files
+.env
+.env.*
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Build outputs
+dist
+build
+coverage
+
+# Uploaded files
+uploads
+tmp
+temp
+
+# Package manager lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Generated files
+*.min.js
+*.bundle.js
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git
+
+# Optional (if using docs generation)
+docs
